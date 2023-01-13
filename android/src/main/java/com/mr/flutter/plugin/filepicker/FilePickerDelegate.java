@@ -47,7 +47,7 @@ public class FilePickerDelegate implements PluginRegistry.ActivityResultListener
                 new PermissionManager() {
                     @Override
                     public boolean isPermissionGranted(final String permissionName) {
-                        return ActivityCompat.checkSelfPermission(activity, permissionName)
+                        return Build.VERSION.SDK_INT > Build.VERSION_CODES.P || ActivityCompat.checkSelfPermission(activity, permissionName)
                                 == PackageManager.PERMISSION_GRANTED;
                     }
 
